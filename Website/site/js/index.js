@@ -23,13 +23,13 @@ window.onload = function(){
         })
         .then(function (response) {
             console.log(response);
+            str = document.getElementById('formula');
             if (choice == 0){
                 paragraph(0);
                 checkingMore(str);
                 res = document.getElementById('postResult');
                 res.style.visibility = "hidden";
             } else{
-                str = document.getElementById('formula');
                 paragraph(0);
                 errCheck = checkingMore(str);
                 if (errCheck == 0){
@@ -71,6 +71,7 @@ window.onload = function(){
 
     function paragraph(err){
         p = document.getElementById('msg');
+        p.style.visibility = "visible";
         res = document.getElementById('postResult');
         switch(err) {
           case 0:
