@@ -1,6 +1,6 @@
 window.onload = function(){
-    document.getElementById("check").onclick=function(){
 
+    document.getElementById("check").onclick=function(){
         if (document.getElementById('formula').value){
             performPostRequest(0);
         }else{
@@ -27,10 +27,10 @@ window.onload = function(){
                 paragraph(0);
             } else{
                 //TODO le calcul
-                str = document.getElementById('formula')
-                str.value = 'couille';
-                //TODO le calcul
-                paragraph(1)
+                str = document.getElementById('formula');
+                answer = calculate(parseCalculationString(str.value));
+                paragraph(1);
+                result(answer);
             }
         })
         .catch(function (error) {
@@ -54,5 +54,11 @@ window.onload = function(){
             p.style.color = "red";
             p.innerHTML = 'Error, formula is wrongly written...';
         }
+    }
+
+    function result(val){
+      p = document.getElementById('postResult');
+      p.innerHTML = 'Result:'+val;
+      p.style.color = "green";
     }
 }

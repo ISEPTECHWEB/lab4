@@ -4,7 +4,8 @@ const SRC_DIR = path.resolve(__dirname, "site");
 
 module.exports = {
     entry: [
-        SRC_DIR + "/js/index.js"
+        SRC_DIR + "/js/index.js",
+        SRC_DIR + "/js/calculator.js"
     ],
     devtool: 'eval-source-map',
     module: {
