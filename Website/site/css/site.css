@@ -1,0 +1,35 @@
+/* This is where you will put your own CSS. */
+/* DO NOT MODIFY bootstrap.min.css !!! */
+.txt{
+    border: 0.5px solid black;
+    margin-top: 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    box-shadow: 1px 1px black;
+    vertical-align:top;
+}
+
+.btn{
+    background-color: rgb(75, 113, 156);
+    border: none;
+    margin: 20px 0px 0px 10px;
+    color: white;
+    padding: 15px 30px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0px 5px 10px black;
+    vertical-align:top;
+}
+
+.btn:hover {
+    background-color: rgb(38, 58, 80);
+    box-shadow: 0px 1px 5px black;
+}
+
+p{
+    font-style: italic;
+}
