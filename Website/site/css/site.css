@@ -33,3 +33,19 @@
 p{
     font-style: italic;
 }
+
+#postResult{
+    background-color: rgb(93, 179, 230);
+    border: none;
+    border-radius: 3px;
+    margin: 20px 0px 0px 10px;
+    color: rgb(0, 0, 0);
+    padding: 15px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    box-shadow: 0px 5px 10px black;
+    vertical-align:top;
+    visibility: hidden;
+}
