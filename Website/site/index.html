@@ -11,18 +11,21 @@
             <div class="row">
                 <h1>Dummy Calculator</h1>
             </div>
-            <form>
-              <div class="form-group">
-                <label for="formula">Your formula:</label>
-                <textarea class="form-control" id="formula" rows="3"  placeholder="1+1, 2*3..."></textarea>
-                <p id="msg">error mon poulet</p>
-              </div>
-              <button class="btn btn-default" id="check">Check</button>
-              <button class="btn btn-default" id="evaluate">Evaluate</button>
-            </form>
-            <p id="postResult"></p>
 
+            <div class="form-group">
+              <label for="formula">Your formula:</label>
+              <textarea class="form-control" id="formula" rows="3"  placeholder="1+1, 2*3..."></textarea>
+              <p id="msg">error mon poulet</p>
+            </div>
+
+            <button class="btn btn-default" id="check">Check</button>
+            <button class="btn btn-default" id="evaluate">Evaluate</button>
+
+            <div class="row mt-3">
+              <p id="postResult"></p>
+            </div>
         </div>
+
         <script type="text/javascript" src="./build/app.js"></script>
         <script type="text/javascript" src="./js/index.js"></script>
         <script type="text/javascript" src="./js/calculator.js"></script>

@@ -29,7 +29,7 @@ window.onload = function(){
                 //TODO le calcul
                 str = document.getElementById('formula');
                 answer = calculate(parseCalculationString(str.value));
-                paragraph(1);
+                paragraph(0);
                 result(answer);
             }
         })
@@ -41,16 +41,20 @@ window.onload = function(){
 
     function paragraph(err){
         p = document.getElementById('msg');
-        if (err == 0){
+        switch(err) {
+          case 0:
             p.innerHTML = 'ok!'
             p.style.color = "green";
-        }else if (err == 1){
-            p.innerHTML = ''
+            break;
+          case 1:
+            p.innerHTML = ' '
             p.style.color = "green";
-        }else if (err == -1){
+            break;
+          case -1:
             p.style.color = "red";
             p.innerHTML = 'Error, enter a formula...';
-        }else{
+            break;
+          default:
             p.style.color = "red";
             p.innerHTML = 'Error, formula is wrongly written...';
         }
