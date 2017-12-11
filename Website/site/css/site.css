@@ -34,6 +34,10 @@ p{
     font-style: italic;
 }
 
+#msg{
+    visibility: hidden;
+}
+
 #postResult{
     background-color: rgb(93, 179, 230);
     border: none;
