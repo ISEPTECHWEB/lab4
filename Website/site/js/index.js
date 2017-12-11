@@ -27,17 +27,21 @@ window.onload = function(){
         .then(function (response) {
             console.log(response);
             str = document.getElementById('formula');
-            if (choice == 0){
-                paragraph(0);
-                checkingMore(str);
-                res = document.getElementById('postResult');
-                res.style.visibility = "hidden";
-            } else{
-                paragraph(0);
-                errCheck = checkingMore(str);
-                if (errCheck == 0){
-                    answer = calculate(parseCalculationString(str.value));
-                    result(answer);
+            paragraph(0);
+            errCheck = checkingMore(str);
+            if (errCheck == 0){
+                answer = calculate(parseCalculationString(str.value));
+                if (answer == Infinity || answer == -Infinity){
+                    paragraph(-2);
+                }else if (isNaN(answer)){
+                    paragraph(-10);
+                }else{
+                    if (choice == 0){
+                        res = document.getElementById('postResult');
+                        res.style.visibility = "hidden";
+                    }else{
+                        result(answer);
+                    }
                 }
             }
         })
@@ -65,9 +69,6 @@ window.onload = function(){
             return -1;
         } else if (str.toString().indexOf("*", str.length - 1) !== -1 || str.toString().indexOf("/", str.length - 1) !== -1 || str.toString().indexOf("+", str.length - 1) !== -1 || str.toString().indexOf("-", str.length - 1) !== -1 || str.toString().indexOf("=", str.length - 1) !== -1) {
             paragraph(-10);
-            return -1;
-        } else if(str.value.toString().indexOf('/0') !== -1){
-            paragraph(-2);
             return -1;
         }
         return 0;
