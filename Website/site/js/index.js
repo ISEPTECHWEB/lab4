@@ -1,5 +1,6 @@
 window.onload = function(){
 
+    // get formula when check
     document.getElementById("check").onclick=function(){
         if (document.getElementById('formula').value){
             performPostRequest(0);
@@ -8,6 +9,7 @@ window.onload = function(){
         }
     }
 
+    // Get formula when evaluate
     document.getElementById("evaluate").onclick=function(){
         if (document.getElementById('formula').value){
             performPostRequest(1);
@@ -16,6 +18,7 @@ window.onload = function(){
         }
     }
 
+    // Post to the API
     function performPostRequest(choice) {
         form = document.getElementById('formula').value
         axios.post('http://localhost:8081/', {
@@ -44,6 +47,7 @@ window.onload = function(){
         });
     }
 
+    // Function that add more checkings than the API
     function checkingMore(str){
         str.value = str.value.toString().replace(/\s+/g, '');
         partStr = ['/+', '/-', '/*', '//',
@@ -69,6 +73,7 @@ window.onload = function(){
         return 0;
     }
 
+    // Function to display errors
     function paragraph(err){
         p = document.getElementById('msg');
         res = document.getElementById('postResult');
@@ -94,6 +99,7 @@ window.onload = function(){
         }
     }
 
+    // Function to display result
     function result(val){
       p = document.getElementById('postResult');
       p.innerHTML = 'Result : '+val;

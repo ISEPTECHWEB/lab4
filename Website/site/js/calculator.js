@@ -1,13 +1,14 @@
+
+  // Function that parse a string mathematical formula into an array of numbers and operators
   function parseCalculationString(s) {
-    // --- Parse a calculation string into an array of numbers and operators
-    var calculation = [],
-        current = '';
+    var calculation = [], current = '';
     for (var i = 0, ch; ch = s.charAt(i); i++) {
         if ('*/+-'.indexOf(ch) > -1) {
+            // Include sign -
             if (current == '' && ch == '-') {
                 current = '-';
             } else {
-                calculation.push(parseFloat(current), ch);
+                calculation.push(parseFloat(current), ch) // Insert into array
                 current = '';
             }
         } else {
@@ -15,26 +16,26 @@
         }
     }
     if (current != '') {
-        calculation.push(parseFloat(current));
+        calculation.push(parseFloat(current)); // Insert into array
     }
     return calculation;
 }
 
+// Function that perform a calculation from an array of operators and numbers
 function calculate(calc) {
-    // --- Perform a calculation expressed as an array of operators and numbers
     var ops = [{'*': (a, b) => a * b, '/': (a, b) => a / b},
                {'+': (a, b) => a + b, '-': (a, b) => a - b}],
         newCalc = [],
         currentOp;
     for (var i = 0; i < ops.length; i++) {
         for (var j = 0; j < calc.length; j++) {
-            if (ops[i][calc[j]]) {
+            if (ops[i][calc[j]]) { // Get operator
                 currentOp = ops[i][calc[j]];
-            } else if (currentOp) {
+            } else if (currentOp) { // Make calculation
                 newCalc[newCalc.length - 1] =
                     currentOp(newCalc[newCalc.length - 1], calc[j]);
                 currentOp = null;
-            } else {
+            } else { // Add number to array
                 newCalc.push(calc[j]);
             }
             console.log(newCalc);
@@ -42,10 +43,10 @@ function calculate(calc) {
         calc = newCalc;
         newCalc = [];
     }
-    if (calc.length > 1) {
+    if (calc.length > 1) { // Handle error
         console.log('Error: unable to resolve calculation');
         return calc;
-    } else {
+    } else { // Return the first and only number of the formula
         return calc[0];
     }
 }
